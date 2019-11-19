@@ -14,6 +14,7 @@
 			|| BX_PLATFORM_RPI                            \
 			|| BX_PLATFORM_STEAMLINK                      \
 			|| BX_PLATFORM_WINDOWS                        \
+			|| BX_PLATFORM_LINUX_NO_GL                    \
 			) )
 
 #define BGFX_USE_HTML5 (BGFX_CONFIG_RENDERER_OPENGLES && (0 \
@@ -31,6 +32,7 @@
 			|| BX_PLATFORM_LINUX   \
 			|| BX_PLATFORM_OSX     \
 			|| BX_PLATFORM_WINDOWS \
+			|| BX_PLATFORM_LINUX_NO_GL \
 			)
 
 #define BGFX_GL_PROFILER_BEGIN(_view, _abgr)                                               \

@@ -341,7 +341,7 @@ WINDRES  := $(word 1,$(TOOLCHAIN) i686-w64-mingw32-)windres
 endif
 endif
 
-ifeq ($(findstring arm,$(UNAME)),arm)
+ifeq ($(findstring arm,$(PLATFORM)),arm)
 ARCHITECTURE :=
 ifndef NOASM
 	NOASM := 1

@@ -60,6 +60,7 @@
 #define BX_PLATFORM_WINDOWS    0
 #define BX_PLATFORM_WINRT      0
 #define BX_PLATFORM_XBOXONE    0
+#define BX_PLATFORM_LINUX_NO_GL 0
 
 // http://sourceforge.net/apps/mediawiki/predef/index.php?title=Compilers
 #if defined(__clang__)
@@ -225,6 +226,13 @@
 #	define BX_PLATFORM_HAIKU 1
 #endif //
 
+#if BX_CPU_ARM
+#   undef  BX_PLATFORM_LINUX
+#   define BX_PLATFORM_LINUX 0
+#   undef  BX_PLATFORM_LINUX_NO_GL
+#   define BX_PLATFORM_LINUX_NO_GL 1
+#endif
+
 #if !BX_CRT_NONE
 // https://sourceforge.net/p/predef/wiki/Libraries/
 #	if defined(__BIONIC__)
@@ -270,6 +278,7 @@
 	||  BX_PLATFORM_PS4        \
 	||  BX_PLATFORM_RPI        \
 	||  BX_PLATFORM_STEAMLINK  \
+    ||  BX_PLATFORM_LINUX_NO_GL \
 	)
 
 ///
@@ -289,6 +298,7 @@
 	||  BX_PLATFORM_WINDOWS    \
 	||  BX_PLATFORM_WINRT      \
 	||  BX_PLATFORM_XBOXONE    \
+    ||  BX_PLATFORM_LINUX_NO_GL \
 	)
 
 ///
@@ -393,6 +403,8 @@
 #	define BX_PLATFORM_NAME "WinRT"
 #elif BX_PLATFORM_XBOXONE
 #	define BX_PLATFORM_NAME "Xbox One"
+#elif BX_PLATFORM_LINUX_NO_GL
+#	define BX_PLATFORM_NAME "Linux (GLES)"
 #else
 #	error "Unknown BX_PLATFORM!"
 #endif // BX_PLATFORM_
