@@ -348,7 +348,7 @@ ifndef NOASM
 endif
 endif
 
-ifeq ($(findstring aarch64,$(UNAME)),aarch64)
+ifeq ($(findstring aarch64,$(PLATFORM)),aarch64)
 ARCHITECTURE :=
 ifndef NOASM
 	NOASM := 1
