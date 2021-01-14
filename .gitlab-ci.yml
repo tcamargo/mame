@@ -89,6 +89,17 @@ libretro-build-linux-x64:
     key: "$CI_COMMIT_REF_SLUG-linux-x64"
   artifacts:
     expire_in: 1 day
+
+# Linux 32-bit
+libretro-build-linux-i686:
+  extends:
+    - .libretro-linux-i686-make-default
+    - .core-defs
+  cache:
+    <<: *global_cache
+    key: "$CI_COMMIT_REF_SLUG-linux-i686"
+  artifacts:
+    expire_in: 1 day
     
 # MacOS 64-bit
 libretro-build-osx-x64:
