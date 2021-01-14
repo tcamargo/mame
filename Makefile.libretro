@@ -85,9 +85,12 @@ ifneq ($(findstring win,$(platform)),)
 	ifeq ($(MSYSTEM),MINGW64)
 		MINGW64 ?= /mingw64
 		PLATFLAGS += MINGW64="$(MINGW64)"
+		LIBRETRO_CPU="x86_64"
 	else ifeq ($(MSYSTEM),MINGW32)
 		MINGW32 ?= /mingw32
 		PLATFLAGS += MINGW32="$(MINGW32)"
+		LIBRETRO_CPU="x86"
+		PTR64=0
 	endif
 	CC  ?= cc
 	CXX ?= cxx
